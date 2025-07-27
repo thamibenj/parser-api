@@ -1,4 +1,4 @@
-import Mercury from '@postlight/mercury-parser';
+import Mercury from '@postlight/parser';
 
 export default async function handler(req, res) {
   const { url } = req.query;
