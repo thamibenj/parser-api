@@ -1,5 +1,4 @@
 import Mercury from '@postlight/mercury-parser';
-import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
   const { url } = req.query;
@@ -10,10 +9,9 @@ export default async function handler(req, res) {
 
   try {
     const result = await Mercury.parse(url, {
-      fetchOptions: {
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
-        },
+      contentType: 'html',
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
       },
     });
 
@@ -22,10 +20,11 @@ export default async function handler(req, res) {
     res.status(500).json({
       error: true,
       message: err.message,
-      failed: true
+      failed: true,
     });
   }
 }
+
 
 
 
