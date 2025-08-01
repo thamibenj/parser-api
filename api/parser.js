@@ -1,4 +1,5 @@
 import Mercury from '@postlight/parser';
+// Force deploy: revert to working version
 
 export default async function handler(req, res) {
   const { url } = req.query;
